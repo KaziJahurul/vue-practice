@@ -1,0 +1,43 @@
+body {
+  font-family: tahoma;
+  color: #282828;
+  margin: 0px;
+}
+
+.nav-bar {
+  background: linear-gradient(-90deg, #84CF6A, #16C0B0);
+  height: 60px;
+  margin-bottom: 15px;
+}
+#app {
+  max-width: 1170px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+ul.list-all{
+  list-style: none;
+}
+
+li{
+  position: relative;
+  margin-bottom: 15px;
+}
+ul.list-all li span::before{
+  position: absolute;
+  top: 2px;
+  left: -25px;
+  content: "";
+  display: inline-block;
+  border: 1px solid;
+  height: 20px;
+  width: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+ul.list-all .list-completed span::before{
+
+  content: "\2713";
+  
+}
