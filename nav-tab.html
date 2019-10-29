@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+	<div class="nav-bar"></div>
+
+	<div id="app" class="container">
+		
+        <joe-nav-tab :tabclose="tabitem"></joe-nav-tab>
+        <joe-nav-tab :tabclose="tabitem"></joe-nav-tab>
+        <joe-nav-tab :tabclose="tabitem"></joe-nav-tab>
+        
+
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	 
+	<script>
+
+        Vue.component('JoeNavTab', {
+            props: ['tabclose'],
+            template: `
+            <div class="navtab">
+                <h1 @click="navtabitemclose = ! navtabitemclose">Tab Title</h1>
+                <div v-show="navtabitemclose" class="tab-body">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit vero quos aliquam. Deleniti, dolores! Consequuntur earum ea quia quaerat, suscipit iusto ullam, laboriosam est error expedita, nulla eveniet saepe explicabo!
+                </div>
+            </div>
+            `,
+            data() {
+                return {
+                    navtabitemclose: this.tabclose,
+                };
+            },
+        });
+
+        var app = new Vue({
+            el: "#app",
+            data: {
+                tabitem: true,
+            },
+            methods: {
+
+            },
+            computed: {
+                
+            }
+        });
+    </script>
+</body>
+</html>
