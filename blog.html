@@ -27,11 +27,11 @@
               <div class="post_header" v-text="post.title"></div>
               <div class="post_body" v-text="post.body"></div>
               <div class="post_footer" v-text="post.userId"></div>
-              <span  class="edit">Edit</span>
-              <form class="post_edit">
+              <span @click.prevent="post.edit = ! post.edit" class="edit">Edit</span>
+              <form v-if="post.edit" class="post_edit">
                 <input type="text" v-model="post.title">
                 <textarea v-model="post.body"></textarea>
-                <button>Update</button>
+                <button @click.prevent="post.edit = ! post.edit">Update</button>
               </form>
             </div>
           </div>
@@ -46,16 +46,16 @@
             el: '#app',
             data: {
                 posts: [],
-                i: 0,
+                // i: 0,
             },
             methods: {
-                addEdit: function() {
-                    console.log(this.i);
-                    for(this.i; this.i < this.posts.length - 1; this.i++) {
-                      this.posts[this.i].edit = false;
-                      console.log(this.posts[this.i]);
-                    }
-                }
+                // addEdit: function() {
+                //     console.log(this.i);
+                //     for(this.i; this.i < this.posts.length - 1; this.i++) {
+                //       this.posts[this.i].edit = false;
+                //       console.log(this.posts[this.i]);
+                //     }
+                // }
             },
             created() {
                 axios.get('posts.json')

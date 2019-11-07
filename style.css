@@ -56,7 +56,7 @@ ul.list-all .list-completed span::before{
   text-decoration: underline;
   cursor: pointer;
 }
-.post_edit{
+.post_edit {
   padding: 30px;
   border: 1px solid #ddd;
 }
