@@ -41,3 +41,27 @@ ul.list-all .list-completed span::before{
   content: "\2713";
   
 }
+
+.posts{
+  max-width: 780px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+.post{
+  margin-bottom: 30px;
+  padding: 15px;
+  border: 1px solid green;
+}
+.edit{
+  text-decoration: underline;
+  cursor: pointer;
+}
+.post_edit{
+  padding: 30px;
+  border: 1px solid #ddd;
+}
+.post_edit textarea,
+.post_edit input{
+  width: 100%;
+  margin-bottom: 10px;
+}

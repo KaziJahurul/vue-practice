@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+	<div class="nav-bar"></div>
+
+	<div id="app" class="container">
+
+        <div class="edit_btn">
+            <button @click.prevent="addEdit">Add data to post object</button>
+        </div>
+
+        <div class="posts">
+            <div
+             class="post"
+             v-for="(post, index) in posts"
+             :key="index"
+             :class="'post_' + post.id"
+            >
+              <div class="post_header" v-text="post.title"></div>
+              <div class="post_body" v-text="post.body"></div>
+              <div class="post_footer" v-text="post.userId"></div>
+              <span  class="edit">Edit</span>
+              <form class="post_edit">
+                <input type="text" v-model="post.title">
+                <textarea v-model="post.body"></textarea>
+                <button>Update</button>
+              </form>
+            </div>
+          </div>
+
+	</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	 
+    <script>
+        var vueBlog = new Vue({
+            el: '#app',
+            data: {
+                posts: [],
+                i: 0,
+            },
+            methods: {
+                addEdit: function() {
+                    console.log(this.i);
+                    for(this.i; this.i < this.posts.length - 1; this.i++) {
+                      this.posts[this.i].edit = false;
+                      console.log(this.posts[this.i]);
+                    }
+                }
+            },
+            created() {
+                axios.get('posts.json')
+                    .then(response => this.posts = response.data.splice(0, 20))
+                    .catch(function (error) {
+                        // handle error
+                        console.log(error);
+                    })
+                    .finally(function () {
+                        console.log('Done with Request execution');
+                    });
+            }
+        });
+    </script>
+</body>
+</html>
