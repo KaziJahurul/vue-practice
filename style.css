@@ -44,7 +44,7 @@ ul.list-all .list-completed span::before{
 
 .posts{
   max-width: 780px;
-  padding: 0 15px;
+  padding: 30px 15px 0;
   margin: 0 auto;
 }
 .post{

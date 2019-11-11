@@ -13,10 +13,6 @@
 
 	<div id="app" class="container">
 
-        <div class="edit_btn">
-            <button @click.prevent="addEdit">Add data to post object</button>
-        </div>
-
         <div class="posts">
             <div
              class="post"
@@ -24,14 +20,14 @@
              :key="index"
              :class="'post_' + post.id"
             >
-              <div class="post_header" v-text="post.title"></div>
+              <h4 class="post_header" v-text="post.title"></h4>
               <div class="post_body" v-text="post.body"></div>
               <div class="post_footer" v-text="post.userId"></div>
               <span @click.prevent="post.edit = ! post.edit" class="edit">Edit</span>
               <form v-if="post.edit" class="post_edit">
                 <input type="text" v-model="post.title">
                 <textarea v-model="post.body"></textarea>
-                <button @click.prevent="post.edit = ! post.edit">Update</button>
+                <button @click.prevent="post.edit = ! post.edit" >Update</button>
               </form>
             </div>
           </div>
@@ -47,6 +43,18 @@
             data: {
                 posts: [],
                 // i: 0,
+                users: [
+                    {
+                        name: "joe",
+                        email: "joe@gmail.com",
+                        pass: 123456,
+                    },
+                    {
+                        name: "blake",
+                        email: "blake@gmail.com",
+                        pass: 123456,
+                    }
+                ],
             },
             methods: {
                 // addEdit: function() {
